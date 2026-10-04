@@ -25,3 +25,10 @@ taskForm.addEventListener('submit', function(event) {
   `);
 });
 
+
+ulList.addEventListener('click', function(event) {
+  if (event.target.classList.contains('delete-task')) {
+    const parentCard = event.target.closest('.task-card');
+    parentCard.remove();
+  };
+});
