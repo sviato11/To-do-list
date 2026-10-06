@@ -117,3 +117,8 @@ li {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.task-card.completed .task {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
