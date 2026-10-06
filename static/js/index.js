@@ -31,4 +31,8 @@ ulList.addEventListener('click', function(event) {
     const parentCard = event.target.closest('.task-card');
     parentCard.remove();
   };
+  if (event.target.classList.contains('complete-task')) {
+    const parentCard = event.target.closest('.task-card');
+    parentCard.classList.toggle('completed');
+  }
 });
