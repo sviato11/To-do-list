@@ -77,6 +77,13 @@ ulList.addEventListener('click', function(event) {
   };
   if (event.target.classList.contains('complete-task')) {
     const parentCard = event.target.closest('.task-card');
+    const foundTask = tasks.find(el => el.id === id);
+
+    if (foundTask) {
+      foundTask.completed = !foundTask.completed;
+    }
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     parentCard.classList.toggle('completed');
   }
 });
