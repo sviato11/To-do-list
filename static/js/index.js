@@ -66,17 +66,19 @@ taskForm.addEventListener('submit', function(event) {
 
 ulList.addEventListener('click', function(event) {
   const parentCard = event.target.closest('.task-card');
+  if (parentCard === null) {
+    return;
+  }
+
   const id = Number(parentCard.dataset.id);
 
   if (event.target.classList.contains('delete-task')) {
-    const parentCard = event.target.closest('.task-card');
     //  filter logic
     tasks = tasks.filter(el => el.id !== id);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     parentCard.remove();
   };
   if (event.target.classList.contains('complete-task')) {
-    const parentCard = event.target.closest('.task-card');
     const foundTask = tasks.find(el => el.id === id);
 
     if (foundTask) {
