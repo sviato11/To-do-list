@@ -72,7 +72,7 @@ li {
 
 .task-card{
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   background-color: #1e293b;
   color: #fff;
@@ -91,7 +91,8 @@ li {
 .actions {
   display: flex;
   align-items: center;
-  flex: 1;
+  margin-left: auto;
+  flex-shrink: 0; 
   
   gap: 10px;
 }
