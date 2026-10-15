@@ -10,13 +10,14 @@ if (savedTasks) {
   tasks = JSON.parse(savedTasks);
 }
 
-tasks.forEach(el => {
+// Reverse a copy of the array so newer tasks appear at the top on page load
+tasks.slice().reverse().forEach(el => {
   let completedClass = '';
   if (el.completed === true) {
     completedClass = 'completed';
   }
 
-  ulList.insertAdjacentHTML('beforeend', `
+  ulList.insertAdjacentHTML('afterbegin', `
     <li class="task-card ${completedClass}" data-id="${el.id}">
       <p class="task">${el.text}</p>
       <div class="actions">
@@ -46,13 +47,13 @@ taskForm.addEventListener('submit', function(event) {
     completed: false,
   };
 
-  tasks.push(newTask);
+  tasks.unshift(newTask);
   localStorage.setItem('tasks', JSON.stringify(tasks));
   
 
 
 
-  ulList.insertAdjacentHTML('beforeend', `
+  ulList.insertAdjacentHTML('afterbegin', `
     <li class="task-card" data-id="${newTask.id}">
       <p class="task">${taskText}</p>
       <div class="actions">
