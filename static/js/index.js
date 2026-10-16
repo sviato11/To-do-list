@@ -19,13 +19,15 @@ tasks.slice().reverse().forEach(el => {
 
   ulList.insertAdjacentHTML('afterbegin', `
     <li class="task-card ${completedClass}" data-id="${el.id}">
-      <p class="task">${el.text}</p>
+      <p class="task"></p>
       <div class="actions">
         <button class="complete-task">Complete</button>
         <button class="delete-task">Delete</button>
       </div>
     </li>
   `);
+  
+  ulList.firstElementChild.querySelector('.task').textContent = el.text;
 });
 
 
@@ -55,13 +57,14 @@ taskForm.addEventListener('submit', function(event) {
 
   ulList.insertAdjacentHTML('afterbegin', `
     <li class="task-card" data-id="${newTask.id}">
-      <p class="task">${taskText}</p>
+      <p class="task"></p>
       <div class="actions">
         <button class="complete-task">Complete</button>
         <button class="delete-task">Delete</button>
       </div>
     </li>
   `);
+  ulList.querySelector('.task').textContent = taskText;
 });
 
 
